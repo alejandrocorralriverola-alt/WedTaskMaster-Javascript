@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'NewYorker';
+    src: url('../fonts/NewYork.otf') format('opentype');
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333;
+}
+
+/* ===== Cabecera y navegación ===== */
+header {
+    padding: 20px;
+    background: #ffffff;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.header-superior {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+header h1 {
+    font-family: 'NewYorker', sans-serif;
+    font-size: 48px;
+    margin: 0;
+    color: #333;
+}
+
+.logo-empresa-header {
+    width: auto;
+    height: 60px;
+}
+
+.nav-principal ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.nav-principal ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.nav-principal ul li a.active {
+    color: #e6007e;
+    text-decoration: underline;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer a.footer-enlace {
+    color: #00aaff !important;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a.footer-enlace:hover {
+    color: #0088cc !important;
+    text-decoration: underline;
+}
+
+.redes-footer {
+    margin: 10px 0;
+}
+
+.redes-footer img {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+}
+
+.footer-logo img {
+    width: auto;
+    height: 60px;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== Responsividad ===== */
+@media (max-width: 768px) {
+    .header-superior {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header h1 {
+        font-size: 36px;
+    }
+
+    .nav-principal ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
