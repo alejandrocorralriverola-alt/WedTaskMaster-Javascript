@@ -1,12 +1,12 @@
 /* style-contacto.css
    Estilos específicos para la página de contacto.
-   Comentarios breves y técnicos únicamente.
+
 */
 
 /* ---- Fuente personalizada para el header h1 ---- */
 @font-face {
     font-family: 'NewYorker';
-    src: url('../fonts/NewYork.otf') format('opentype');
+    src: url('../fonts/newyork.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

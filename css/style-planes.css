@@ -1,7 +1,6 @@
 /* style-planes.css
    Estilos específicos para planeswtm.html
-   Basado en la versión que tenías funcionando; añadido ajuste de separación superior
-   para cumplir requisitos del proyecto y coherencia visual con index
+   Coherencia visual con index
 */
 
 /* Variables locales */
@@ -21,7 +20,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-/* Espaciado superior para evitar solape con header */
+/* Espaciado superior con header */
 main {
   margin-top: 200px; /* ajustado para dejar ver fondo blanco antes del cajetín gris */
   box-sizing: border-box;
@@ -129,7 +128,7 @@ main {
   transform: translateY(-2px);
 }
 
-/* Footer: fondo oscuro consistente y sin franja blanca */
+/* Footer: fondo oscuro */
 footer {
   background: #2c3e50 !important;
   color: #fff;
@@ -139,7 +138,7 @@ footer {
   box-sizing: border-box;
 }
 
-/* Asegurar que no haya espacio blanco debajo */
+/* Sin espacio blanco debajo */
 html, body {
   height: 100%;
 }
