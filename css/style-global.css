@@ -1,6 +1,6 @@
 /* style-global.css - corregido y simplificado
    Variables, tipografías y estilos compartidos entre páginas
-   Ajustes mínimos para cumplir criterios TRABAJO FINAL
+   Ajustes criterios TRABAJO FINAL
 */
 
 /* ===== Variables globales ===== */
@@ -19,7 +19,7 @@
 /* ===== Fuentes ===== */
 @font-face {
   font-family: 'NewYorker';
-  src: url('../fonts/NewYork.otf') format('opentype');
+  src: url('../fonts/newyork.otf') format('opentype');
 }
 
 /* ===== Reset / Base ===== */
