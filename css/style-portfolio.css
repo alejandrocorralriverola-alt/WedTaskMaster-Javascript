@@ -1,0 +1,130 @@
+@font-face {
+  font-family: 'NewYorker';
+  src: url('../fonts/NewYork.otf') format('opentype');
+}
+
+:root{
+  --accent: #e6007e;
+  --text: #333333;
+  --white: #ffffff;
+  --shadow: rgba(0,0,0,0.10);
+  --max-w: 1100px;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--white);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  padding: 20px;
+  background: var(--white);
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.header-superior {
+  display:flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+header h1 { font-family: 'NewYorker', serif; font-size: 48px; margin:0; }
+.logo-empresa-header { height:60px; width:auto; }
+
+.nav-principal ul { list-style:none; padding:0; margin-top:10px; display:flex; gap:20px; justify-content:center; }
+.nav-principal ul li a { text-decoration:none; font-weight:700; color:var(--text); padding:5px 10px; }
+.nav-principal ul li a.active { color:var(--accent); text-decoration:underline; }
+
+main { margin-top: 180px; padding: 0 20px; max-width: var(--max-w); margin-left:auto; margin-right:auto; text-align:center; }
+
+/* Portfolio: fondo blanco y separación controlada */
+#portfolio {
+  background: var(--white);
+  padding: 60px 20px 80px;
+  box-sizing: border-box;
+}
+#portfolio h2 {
+  color: var(--accent);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 40px;
+}
+
+/* Galería 4x4 responsive */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.galeria img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px var(--shadow);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+.galeria img:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+}
+
+/* Colaboradores: fondo blanco y colores exactos */
+#colaboradores {
+  background: var(--white);
+  padding: 60px 20px 80px;
+  box-sizing: border-box;
+}
+#colaboradores h2 {
+  color: var(--accent);
+  font-size: 2rem;
+  margin: 0 0 30px;
+  font-weight: 700;
+}
+.colaboradores {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap: 36px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.colaboradores .logo {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+.colaboradores .logo img { width:120px; height:120px; object-fit:contain; display:block; }
+.colaboradores .logo p { margin:0; font-weight:700; }
+.colaboradores .logo:nth-child(1) p { color: #995a67; }  
+.colaboradores .logo:nth-child(2) p { color: #000000; }  
+.colaboradores .logo:nth-child(3) p { color: #f4cfda; }  
+.colaboradores .logo:nth-child(4) p { color: #c5e1c3; }  
+.colaboradores .logo:nth-child(5) p { color: #ffc42b; }  
+
+footer {
+  background: #2c3e50;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+footer a.footer-enlace { color: #00aaff !important; text-decoration:none; font-weight:700; }
+footer a.footer-enlace:hover { color:#0088cc !important; text-decoration:underline; }
+
+@media (max-width: 1000px) { .galeria { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 700px) {
+  .galeria { grid-template-columns: repeat(2, 1fr); }
+  #portfolio h2, #colaboradores h2 { font-size: 1.6rem; margin-bottom: 24px; }
+}
+@media (max-width: 480px) { .galeria { grid-template-columns: 1fr; } }

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+<!-- Página de presupuesto: formulario dividido en Datos de contacto y Presupuesto. 
+     Cumple validaciones (nombre, apellidos, teléfono, email, etc.) y calcula dinámicamente el importe. -->
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calcula tu presupuesto - WedTaskMaster</title>
 
+    <!-- Enlace al CSS específico y al script del presupuesto -->
     <link rel="stylesheet" href="css/style-presupuesto.css" />
     <script src="scripts/presupuesto.js" defer></script>
 </head>
@@ -12,15 +15,16 @@
 
 <header>
     <div class="header-superior">
-        <img src="img/logo_empresa_header.png" alt="WedTaskMaster" class="logo-empresa-header" width="60" height="60"/>
+        <img src="img/logo_empresa_header.png" alt="WedTaskMaster - logotipo principal" class="logo-empresa-header" width="60" height="60"/>
         <h1>WedTaskMaster</h1>
     </div>
     <nav class="nav-principal">
         <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="planeswtm.html">Planes WTM</a></li>
             <li><a href="presupuesto.html" class="active">Presupuesto</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contacto.html">Encuéntranos aquí</a></li>
         </ul>
     </nav>
 </header>
@@ -28,18 +32,18 @@
 <main>
     <h2 class="titulo-principal">Calcula tu presupuesto</h2>
 
-    <!-- Datos de contacto -->
+    <!-- Sección 1: Datos de contacto -->
     <section id="datos-contacto" class="buzon-cajetin">
         <h3>Datos de contacto</h3>
         <form id="form-presupuesto">
-            <input type="text" id="nombre" placeholder="Nombre" maxlength="15" required />
-            <input type="text" id="apellidos" placeholder="Apellidos" maxlength="40" required />
-            <input type="tel" id="telefono" placeholder="Teléfono" maxlength="9" required />
+            <input type="text" id="nombre" placeholder="Nombre" maxlength="15" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" required />
+            <input type="text" id="apellidos" placeholder="Apellidos" maxlength="40" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" required />
+            <input type="tel" id="telefono" placeholder="Teléfono" maxlength="9" pattern="[0-9]{9}" required />
             <input type="email" id="email" placeholder="Email" required />
         </form>
     </section>
 
-    <!-- Plan y extras -->
+    <!-- Sección 2: Selección de plan, extras y cálculo -->
     <section id="presupuesto" class="buzon-cajetin">
         <h3>El plan que mejor se ajusta a ti</h3>
 
@@ -69,12 +73,19 @@
         </div>
 
         <div class="botones-presupuesto">
-            <button id="calcular">Calcular presupuesto</button>
-            <button id="resetear">Resetear</button>
+            <button id="calcular" type="button">Calcular presupuesto</button>
+            <button id="resetear" type="reset">Resetear</button>
         </div>
 
         <div id="resultado">
             <p><strong>Presupuesto final:</strong> <span id="cantidad" class="resaltado">0€</span></p>
+        </div>
+
+        <div class="condiciones">
+            <label>
+                <input type="checkbox" id="aceptar-condiciones" required />
+                Acepto los términos y condiciones del servicio.
+            </label>
         </div>
     </section>
 </main>
@@ -87,7 +98,7 @@
         <a href="#"><img src="img/facebook.png" alt="Facebook" width="40" height="40"/></a>
     </div>
     <div class="footer-logo">
-        <img src="img/logo_empresa_footer.png" alt="WedTaskMaster Footer" width="60" height="60"/>
+        <img src="img/logo_empresa_footer.png" alt="WedTaskMaster - logotipo en el pie de página" width="60" height="60"/>
     </div>
 </footer>
 

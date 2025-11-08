@@ -10,18 +10,25 @@ body {
     background-color: #ffffff;
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* ==== HEADER ==== */
 header {
-    padding: 20px;
+    padding: 20px 0;
     background: #ffffff;
     text-align: center;
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* ajustado para igualar resto de páginas */
+    box-sizing: border-box;
 }
 
 .header-superior {
@@ -46,7 +53,7 @@ header h1 {
 .nav-principal ul {
     list-style: none;
     padding: 0;
-    margin-top: 10px;
+    margin: 0; /* eliminado margen superior para que gap funcione correctamente */
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -68,14 +75,17 @@ header h1 {
 main {
     max-width: 1200px;
     margin: 0 auto;
-    margin-top: 180px; /* Para evitar que el header tape el título */
+    margin-top: 180px;
     padding: 0 20px;
     text-align: center;
 }
 
+/* ==== TÍTULO PRINCIPAL (ajustado como en Contacto y Portfolio) ==== */
 .titulo-principal {
-    font-size: 36px;
-    margin-bottom: 40px;
+    color: #e6007e;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 40px;
 }
 
 /* ==== CAJETINES ==== */
@@ -106,7 +116,7 @@ main {
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
-    background-color: #ffffff !important; /* ELIMINA POR FIN EL AUTORELLENADO AZUL */
+    background-color: #ffffff !important;
     box-sizing: border-box;
 }
 
@@ -156,34 +166,22 @@ main {
     margin-top: 20px;
 }
 
-/* base del span que muestra la cifra */
 #resultado .resaltado {
     font-weight: bold;
     font-size: 22px;
     color: #e6007e;
     transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
-    display: inline-block; /* para que el transform no afecte al flujo */
+    display: inline-block;
     padding: 4px 8px;
     border-radius: 6px;
 }
 
-/* ---- ADICIONES PARA EL EFECTO DE RESALTADO ---- */
-/* permite que tanto si el JS añade la clase al span (.resaltado.activo)
-   o al contenedor (#resultado.activo) el efecto ocurra */
-/* cuando el span recibe la clase activo */
-#resultado .resaltado.activo {
-    transform: scale(1.18);
-    background-color: rgba(230, 0, 126, 0.10);
-    color: #000;
-}
-
-/* cuando el contenedor recibe la clase activo (por compatibilidad con distintas versiones JS) */
+#resultado .resaltado.activo,
 #resultado.activo .resaltado {
     transform: scale(1.18);
     background-color: rgba(230, 0, 126, 0.10);
     color: #000;
 }
-/* ---- fin de adiciones ---- */
 
 /* ==== FOOTER ==== */
 footer {
@@ -226,4 +224,19 @@ footer a.footer-enlace:hover {
     header h1 {
         font-size: 32px;
     }
+}
+
+/* ==== CORRECCIÓN DEL DESPLAZAMIENTO ==== */
+html {
+    overflow-y: scroll;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+header, .header-superior, .nav-principal ul {
+    margin: 0 auto;
+    max-width: 100%;
+    box-sizing: border-box;
 }

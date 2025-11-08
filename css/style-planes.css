@@ -1,0 +1,160 @@
+/* style-planes.css
+   Estilos específicos para planeswtm.html
+   Basado en la versión que tenías funcionando; añadido ajuste de separación superior
+   para cumplir requisitos del proyecto y coherencia visual con index
+*/
+
+/* Variables locales */
+:root {
+  --accent: #e6007e;        /* rosa-morado corporativo */
+  --section-gray: #f8f8f8;  /* fondo gris claro */
+  --card-radius: 12px;
+  --card-shadow: 0 2px 6px rgba(0,0,0,0.10);
+  --text: #333333;
+}
+
+/* --- Contenedor principal --- */
+body {
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Espaciado superior para evitar solape con header */
+main {
+  margin-top: 200px; /* ajustado para dejar ver fondo blanco antes del cajetín gris */
+  box-sizing: border-box;
+}
+
+/* Sección de planes */
+#planes {
+  background: var(--section-gray);
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+/* Título principal */
+#planes h2 {
+  text-align: center;
+  color: var(--accent);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 auto 40px;
+  display: block;
+}
+
+/* Layout de tarjetas */
+.servicios {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+/* Tarjeta individual */
+.servicio {
+  background: #ffffff;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 24px 18px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+/* Efecto hover: elevación + sombra */
+.servicio:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(44,62,80,0.14);
+}
+
+/* Icono del plan */
+.servicio .icono-plan {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Nombre del plan */
+.servicio h3 {
+  margin-top: 14px;
+  margin-bottom: 10px;
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Descripción */
+.servicio p {
+  color: #555;
+  font-size: 0.95rem;
+  margin: 6px 0 12px;
+  line-height: 1.4;
+}
+
+/* Precio destacado */
+.servicio .precio {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin: 10px 0 16px;
+}
+
+/* Botón coherente con estilo global */
+.servicio button {
+  margin-top: auto;
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 0.18s ease, transform 0.12s ease;
+}
+
+.servicio button:hover {
+  background-color: #c3006c;
+  transform: translateY(-2px);
+}
+
+/* Footer: fondo oscuro consistente y sin franja blanca */
+footer {
+  background: #2c3e50 !important;
+  color: #fff;
+  margin-top: 0;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+/* Asegurar que no haya espacio blanco debajo */
+html, body {
+  height: 100%;
+}
+body > footer {
+  margin-bottom: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1000px) {
+  .servicio { width: 45%; }
+  .servicios { gap: 20px; }
+}
+
+@media (max-width: 700px) {
+  .servicio { width: 100%; }
+  #planes { padding: 40px 12px; }
+  #planes h2 { font-size: 1.6rem; margin-bottom: 24px; }
+}

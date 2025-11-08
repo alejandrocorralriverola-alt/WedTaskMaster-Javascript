@@ -1,0 +1,149 @@
+/* style-contacto.css
+   Estilos específicos para la página de contacto.
+   Comentarios breves y técnicos únicamente.
+*/
+
+/* ---- Fuente personalizada para el header h1 ---- */
+@font-face {
+    font-family: 'NewYorker';
+    src: url('../fonts/NewYork.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Base: respetamos Roboto (global) */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header: aplicar NewYorker solo al h1 */
+header h1 {
+    font-family: 'NewYorker', serif;
+    font-size: 48px;
+    margin: 0;
+    color: #333;
+}
+
+/* Mantener el header fijo y su espaciado (coherente con global) */
+header {
+    padding: 20px;
+    background: #ffffff;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Main: espacio para header fijo */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 150px; /* ajustado para que "Contáctanos" quede más arriba */
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Sección contacto */
+#contacto {
+    padding: 20px 0 60px;
+}
+
+/* Título Contáctanos */
+#contacto h2 {
+    font-size: 2rem;
+    color: #e6007e; /* color corporativo */
+    margin: 6px 0 22px;
+    font-weight: 700;
+}
+
+/* Ficha de contacto: layout responsivo */
+.ficha-contacto {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    box-sizing: border-box;
+}
+
+/* Cajetines de contacto: altura uniforme para todos */
+.contacto-cajetin {
+    background: #f8f8f8;
+    border-radius: 12px;
+    padding: 16px;
+    width: 300px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(44,62,80,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: transform .18s ease, box-shadow .18s ease;
+    /* Nueva regla: altura igual entre cajetines */
+    min-height: 120px;
+}
+
+/* Hover: efecto coherente con otros cajetines */
+.contacto-cajetin:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(44,62,80,0.12);
+}
+
+/* Icono dentro del cajetín */
+.icono-contacto {
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* Texto de dato */
+.dato-contacto {
+    margin: 0;
+    color: #333;
+    font-size: 1rem;
+    text-align: left;
+    line-height: 1.25;
+    font-weight: 500;
+}
+
+/* Mapa: responsivo */
+.mapa-empresa img {
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 14px rgba(44,62,80,0.06);
+}
+
+/* Footer: estilo coherente */
+footer {
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 800px) {
+    .ficha-contacto {
+        gap: 14px;
+        padding: 0 10px;
+    }
+    .contacto-cajetin {
+        width: 100%;
+        padding: 14px;
+    }
+    header h1 { font-size: 36px; }
+    main { margin-top: 140px; }
+}

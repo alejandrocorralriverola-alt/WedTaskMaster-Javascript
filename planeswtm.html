@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- Página de planes y servicios de WedTaskMaster. Muestra los diferentes planes disponibles (FREE, PRO y EQUIPOS). -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planes WTM - WedTaskMaster</title>
+
+    <!-- Fuente global -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Estilos globales -->
+    <link rel="stylesheet" href="./css/style-global.css?v=1.0" />
+
+    <!-- Estilos específicos para esta página -->
+    <link rel="stylesheet" href="./css/style-planes.css?v=1.1"
+          onerror="alert('⚠️ style-planes.css no se ha cargado correctamente')" />
+</head>
+
+<body>
+
+<header>
+    <div class="header-superior">
+        <img src="img/logo_empresa_header.png" alt="WedTaskMaster" class="logo-empresa-header" width="60" height="60" />
+        <h1>WedTaskMaster</h1>
+    </div>
+    <nav class="nav-principal">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="planeswtm.html" class="active">Planes WTM</a></li>
+            <li><a href="presupuesto.html">Presupuesto</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contacto.html">Encuéntranos aquí</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="planes">
+        <h2>Descubre nuestros planes</h2>
+        <div class="servicios">
+
+            <!-- Plan FREE -->
+            <div class="servicio">
+                <img src="img/icono_free.png" alt="Icono plan gratuito" class="icono-plan" width="60" height="60" />
+                <h3>WTM FREE</h3>
+                <p>Planifica, crea y trabaja en todos tus proyectos con cientos de plantillas diferentes y sin preocuparte por el precio.</p>
+                <p class="precio">€0/mes</p>
+                <button onclick="window.location.href='presupuesto.html'">Contratar</button>
+            </div>
+
+            <!-- Plan PRO -->
+            <div class="servicio">
+                <img src="img/icono_pro.png" alt="Icono plan profesional" class="icono-plan" width="60" height="60" />
+                <h3>WTM PRO</h3>
+                <p>Accede a contenido personalizable, añade kits de marca y utiliza herramientas de diseño todavía más potentes.</p>
+                <p class="precio">€12/mes</p>
+                <button onclick="window.location.href='presupuesto.html'">Contratar</button>
+            </div>
+
+            <!-- Plan EQUIPOS -->
+            <div class="servicio">
+                <img src="img/icono_equipos.png" alt="Icono plan equipos" class="icono-plan" width="60" height="60" />
+                <h3>WTM EQUIPOS</h3>
+                <p>¡Todo lo anterior! + el entorno de trabajo perfecto para ti y para todas las personas que forman tu equipo.</p>
+                <p class="precio">€9/mes (mínimo 3 personas)</p>
+                <button onclick="window.location.href='presupuesto.html'">Contratar</button>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>
+        <a href="contacto.html" class="footer-enlace">Dirección de la empresa</a> | Aviso legal
+    </p>
+    <p class="redes-footer">
+        <a href="#"><img src="img/instagram.png" alt="Instagram" width="40" height="40" /></a>
+        <a href="#"><img src="img/pinterest.png" alt="Pinterest" width="40" height="40" /></a>
+        <a href="#"><img src="img/facebook.png" alt="Facebook" width="40" height="40" /></a>
+    </p>
+    <div class="footer-logo">
+        <img src="img/logo_empresa_footer.png" alt="WedTaskMaster Footer" width="60" height="60" />
+    </div>
+</footer>
+
+</body>
+</html>

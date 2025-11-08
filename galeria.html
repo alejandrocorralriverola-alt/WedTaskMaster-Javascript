@@ -4,8 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galería - WedTaskMaster</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Fuente principal -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos globales y específicos -->
+  <link rel="stylesheet" href="css/style-global.css">
+  <link rel="stylesheet" href="css/style-galeria.css">
 </head>
+
 <body>
 
   <header>
@@ -16,18 +23,23 @@
     <nav class="nav-principal">
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="galeria.html" class="active">Galería</a></li>
+        <li><a href="planeswtm.html">Planes WTM</a></li>
         <li><a href="presupuesto.html">Presupuesto</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="contacto.html">Encuéntranos aquí</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
+    <!-- Sección principal de la galería dinámica -->
     <section id="galeria">
       <h2>Galería WedTaskMaster</h2>
-      <p>Explora algunos de nuestros eventos y proyectos destacados.</p>
+      <p class="intro-seccion">
+        Explora algunos de nuestros eventos y proyectos destacados.
+      </p>
 
+      <!-- Contenedor donde se cargan las imágenes mediante JS -->
       <div id="contenedor-galeria" class="galeria">
         <p>Cargando imágenes...</p>
       </div>
@@ -38,16 +50,17 @@
     <p>
       <a href="contacto.html" class="footer-enlace">Dirección de la empresa</a> | Aviso legal
     </p>
-    <p class="redes-footer">
+    <div class="redes-footer">
       <a href="#"><img src="img/instagram.png" alt="Instagram" width="40" height="40"></a>
       <a href="#"><img src="img/pinterest.png" alt="Pinterest" width="40" height="40"></a>
       <a href="#"><img src="img/facebook.png" alt="Facebook" width="40" height="40"></a>
-    </p>
+    </div>
     <div class="footer-logo">
       <img src="img/logo_empresa_footer.png" alt="WedTaskMaster Footer" width="60" height="60">
     </div>
   </footer>
 
+  <!-- Script para cargar las imágenes dinámicamente -->
   <script src="scripts/galeria.js"></script>
 </body>
 </html>
