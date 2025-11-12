@@ -1,15 +1,39 @@
 /* style-planes.css
-   Estilos específicos para planeswtm.html
-   Coherencia visual con index
-*/
+ * Estilos específicos para planeswtm.html
+ * AJUSTE DE HEADER: Sobreescribe style-global.css para forzar la uniformidad.
+ */
 
 /* Variables locales */
 :root {
-  --accent: #e6007e;        /* rosa-morado corporativo */
-  --section-gray: #f8f8f8;  /* fondo gris claro */
+  --accent: #e6007e;       /* rosa-morado corporativo */
+  --section-gray: #f8f8f8; /* fondo gris claro */
   --card-radius: 12px;
   --card-shadow: 0 2px 6px rgba(0,0,0,0.10);
   --text: #333333;
+}
+
+/* * UNIFICACIÓN DE HEADER CON CONTACTO/PORTFOLIO * */
+
+/* HEADER: Ajuste del padding vertical para reducir la altura de la franja. */
+header {
+  padding: 20px;
+}
+
+/* H1: Eliminación del margen inferior para acercar el título a la navegación. */
+header h1 {
+  margin: 0;
+}
+
+/* .header-superior: Asegura el centrado vertical del logo y el título. */
+.header-superior {
+  align-items: center;
+}
+
+/* MAIN: Ajuste del margen superior para compensar la nueva altura del header (150px)
+   y asegurar que el contenido comience en el mismo punto que las demás páginas. */
+main {
+  margin-top: 150px;
+  box-sizing: border-box;
 }
 
 /* --- Contenedor principal --- */
@@ -18,12 +42,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-}
-
-/* Espaciado superior con header */
-main {
-  margin-top: 200px; /* ajustado para dejar ver fondo blanco antes del cajetín gris */
-  box-sizing: border-box;
 }
 
 /* Sección de planes */

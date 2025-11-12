@@ -8,13 +8,13 @@
     <!-- Fuente principal Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 
-    <!-- Hojas de estilo global y específica -->
-    <link rel="stylesheet" href="css/style-global.css" />
-    <link rel="stylesheet" href="css/style-contacto.css" />
+    <!-- Hojas de estilo global y específica (v2.0 para refrescar caché) -->
+    <link rel="stylesheet" href="css/style-global.css?v=2.0" />
+    <link rel="stylesheet" href="css/style-contacto.css?v=2.0" />
 </head>
 <body>
 
-<!-- ==== CABECERA CON LOGO Y NAVEGACIÓN ==== -->
+<!-- ==== CABECERA CON LOGO Y NAVEGACIÓN (Estilos de style-global.css) ==== -->
 <header>
     <div class="header-superior">
         <img src="img/logo_empresa_header.png" alt="WedTaskMaster" class="logo-empresa-header" width="60" height="60"/>
@@ -31,7 +31,7 @@
     </nav>
 </header>
 
-<!-- ==== CONTENIDO PRINCIPAL ==== -->
+<!-- ==== CONTENIDO PRINCIPAL (Hereda el margin-top de style-global.css: 180px) ==== -->
 <main>
     <section id="contacto">
         <h2>Contáctanos</h2>
@@ -40,31 +40,42 @@
         <div class="ficha-contacto">
             <div class="contacto-cajetin">
                 <img src="img/icono_telefono.png" alt="Teléfono" class="icono-contacto" width="40" height="40"/>
-                <p class="dato-contacto">+34 665 446 484</p>
+                <p class="dato-contacto">
+                    <strong>Teléfono:</strong> +34 665 446 484
+                </p>
             </div>
 
             <div class="contacto-cajetin">
                 <img src="img/icono_mail.png" alt="Correo electrónico" class="icono-contacto" width="40" height="40"/>
-                <p class="dato-contacto">info@wedtaskmaster.com</p>
+                <p class="dato-contacto">
+                    <strong>Email:</strong> info@wedtaskmaster.com
+                </p>
             </div>
 
             <div class="contacto-cajetin">
                 <img src="img/icono_oficina.png" alt="Ubicación de la oficina" class="icono-contacto" width="40" height="40"/>
                 <p class="dato-contacto">
-                    La Tintorería Coworking<br>
+                    <strong>Oficina:</strong> La Tintorería Coworking<br>
                     C. de San Pablo, 91, Casco Antiguo, Zaragoza
                 </p>
             </div>
         </div>
 
-        <!-- Mapa de localización -->
+        <!-- Mapa de localización (Google Maps Embed) -->
         <div class="mapa-empresa">
-            <img src="img/mapa_empresa.png" alt="Mapa de la empresa" />
+            <!-- Iframe para embeber el mapa con la dirección de Zaragoza -->
+            <iframe 
+                title="Ubicación de La Tintorería Coworking, Zaragoza"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d374427.6749970929!2d-1.0028736171545404!3d41.67306283525287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd596a29d5b76b2f%3A0x6b4c1a4e15e10086!2sC.%20de%20San%20Pablo%2C%2091%2C%2050003%20Zaragoza!5e0!3m2!1ses!2ses!4v1703666299103!5m2!1ses!2ses"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </section>
 </main>
 
-<!-- ==== PIE DE PÁGINA ==== -->
+<!-- ==== PIE DE PÁGINA (Estilos de style-global.css) ==== -->
 <footer id="footer-principal">
     <p>
         <a href="contacto.html" class="footer-enlace">Dirección de la empresa</a> | Aviso legal

@@ -1,56 +1,33 @@
-/* style-contacto.css
-   Estilos específicos para la página de contacto.
+/* * style-contacto.css
+ * Estilos específicos para la página de contacto.
+ * * AJUSTES CRÍTICOS: Sobreescribimos la altura del header y el margin-top de main
+ * para garantizar consistencia visual con index.html y portfolio.html.
+ */
 
-*/
+/* ====================================================
+ * 0. SOBREESCRITURAS DE style-global.css
+ * (Necesarias para forzar la altura correcta del header fijo)
+ * ==================================================== */
 
-/* ---- Fuente personalizada para el header h1 ---- */
-@font-face {
-    font-family: 'NewYorker';
-    src: url('../fonts/newyork.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* Base: respetamos Roboto (global) */
-body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #ffffff;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Header: aplicar NewYorker solo al h1 */
-header h1 {
-    font-family: 'NewYorker', serif;
-    font-size: 48px;
-    margin: 0;
-    color: #333;
-}
-
-/* Mantener el header fijo y su espaciado (coherente con global) */
 header {
+    /* Reducción del padding vertical (global era 25px 20px) */
     padding: 20px;
-    background: #ffffff;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Main: espacio para header fijo */
+header h1 {
+    /* Eliminar margen inferior de 10px para acercar el h1 a la navegación */
+    margin: 0;
+}
+
 main {
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-top: 150px; /* ajustado para que "Contáctanos" quede más arriba */
-    padding: 0 20px;
-    text-align: center;
+    /* Aumentamos el margen superior para compensar la nueva altura del header (aprox. 120px) */
+    margin-top: 150px !important; /* Importante para prevalecer sobre el 180px de global */
 }
 
-/* Sección contacto */
+/* ====================================================
+ * 1. REGLAS ESPECÍFICAS DE CONTACTO (Mapa y Cajetines)
+ * ==================================================== */
+
 #contacto {
     padding: 20px 0 60px;
 }
@@ -58,9 +35,10 @@ main {
 /* Título Contáctanos */
 #contacto h2 {
     font-size: 2rem;
-    color: #e6007e; /* color corporativo */
+    color: var(--accent, #e6007e);
     margin: 6px 0 22px;
     font-weight: 700;
+    text-align: center; /* ¡¡¡CORRECCIÓN AÑADIDA!!! */
 }
 
 /* Ficha de contacto: layout responsivo */
@@ -70,28 +48,27 @@ main {
     justify-content: center;
     align-items: stretch;
     flex-wrap: wrap;
-    max-width: 1100px;
+    max-width: var(--max-w, 1100px);
     margin: 0 auto 30px;
     box-sizing: border-box;
 }
 
-/* Cajetines de contacto: altura uniforme para todos */
+/* Cajetines de contacto: altura uniforme, base visual */
 .contacto-cajetin {
-    background: #f8f8f8;
-    border-radius: 12px;
+    background: var(--section-gray, #f8f8f8);
+    border-radius: var(--radius, 12px);
     padding: 16px;
     width: 300px;
     display: flex;
     gap: 12px;
     align-items: center;
     box-shadow: 0 4px 8px rgba(44,62,80,0.06);
-    border: 1px solid rgba(0,0,0,0.04);
+    border: 1px solid var(--border, rgba(0,0,0,0.04));
     transition: transform .18s ease, box-shadow .18s ease;
-    /* Nueva regla: altura igual entre cajetines */
     min-height: 120px;
 }
 
-/* Hover: efecto coherente con otros cajetines */
+/* Hover: efecto */
 .contacto-cajetin:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 28px rgba(44,62,80,0.12);
@@ -108,34 +85,44 @@ main {
 /* Texto de dato */
 .dato-contacto {
     margin: 0;
-    color: #333;
+    color: var(--text, #333);
     font-size: 1rem;
     text-align: left;
     line-height: 1.25;
     font-weight: 500;
 }
 
-/* Mapa: responsivo */
-.mapa-empresa img {
-    width: 100%;
-    max-width: 1100px;
-    height: auto;
-    display: block;
+/* Mapa: Contenedor responsivo para el Iframe (Aspecto 16:9) */
+.mapa-empresa {
+    max-width: var(--max-w, 1100px);
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 6px 14px rgba(44,62,80,0.06);
+    position: relative;
+    padding-bottom: 56.25%; /* HACK: 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
 }
 
-/* Footer: estilo coherente */
-footer {
-    background: #2c3e50;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
+.mapa-empresa iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; 
+    border-radius: 10px;
 }
 
-/* Mobile adjustments */
+
+/* ----------------------------------------------------
+ * 2. RESPONSIVE (Móvil)
+ * ---------------------------------------------------- */
 @media (max-width: 800px) {
+    main { 
+        margin-top: 150px !important; 
+    }
+    
     .ficha-contacto {
         gap: 14px;
         padding: 0 10px;
@@ -144,6 +131,4 @@ footer {
         width: 100%;
         padding: 14px;
     }
-    header h1 { font-size: 36px; }
-    main { margin-top: 140px; }
 }

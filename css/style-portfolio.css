@@ -20,6 +20,8 @@ body {
   line-height: 1.6;
 }
 
+/* El Header tiene el ajuste de 20px de padding y h1 margin:0 aplicado en style-global.css o su equivalente 
+   para garantizar uniformidad. Aquí mantenemos las reglas básicas que no causan conflicto. */
 header {
   padding: 20px;
   background: var(--white);
@@ -43,12 +45,14 @@ header h1 { font-family: 'NewYorker', serif; font-size: 48px; margin:0; }
 .nav-principal ul li a { text-decoration:none; font-weight:700; color:var(--text); padding:5px 10px; }
 .nav-principal ul li a.active { color:var(--accent); text-decoration:underline; }
 
+/* El margin-top del main se mantiene en 180px, ya que corrige el salto del header. */
 main { margin-top: 180px; padding: 0 20px; max-width: var(--max-w); margin-left:auto; margin-right:auto; text-align:center; }
 
 /* Portfolio: fondo blanco y separación controlada */
 #portfolio {
   background: var(--white);
-  padding: 60px 20px 80px;
+  /* 🎯 CORRECCIÓN: Reducimos el padding superior de 60px a 30px para subir el h2 */
+  padding: 30px 20px 80px;
   box-sizing: border-box;
 }
 #portfolio h2 {
@@ -107,11 +111,11 @@ main { margin-top: 180px; padding: 0 20px; max-width: var(--max-w); margin-left:
 }
 .colaboradores .logo img { width:120px; height:120px; object-fit:contain; display:block; }
 .colaboradores .logo p { margin:0; font-weight:700; }
-.colaboradores .logo:nth-child(1) p { color: #995a67; }  
-.colaboradores .logo:nth-child(2) p { color: #000000; }  
-.colaboradores .logo:nth-child(3) p { color: #f4cfda; }  
-.colaboradores .logo:nth-child(4) p { color: #c5e1c3; }  
-.colaboradores .logo:nth-child(5) p { color: #ffc42b; }  
+.colaboradores .logo:nth-child(1) p { color: #995a67; }
+.colaboradores .logo:nth-child(2) p { color: #000000; }
+.colaboradores .logo:nth-child(3) p { color: #f4cfda; }
+.colaboradores .logo:nth-child(4) p { color: #c5e1c3; }
+.colaboradores .logo:nth-child(5) p { color: #ffc42b; }
 
 footer {
   background: #2c3e50;

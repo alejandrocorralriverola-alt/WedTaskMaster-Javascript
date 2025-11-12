@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<!-- Página de presupuesto: formulario dividido en Datos de contacto y Presupuesto. 
-     Cumple validaciones (nombre, apellidos, teléfono, email, etc.) y calcula dinámicamente el importe. -->
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calcula tu presupuesto - WedTaskMaster</title>
 
-    <!-- Enlace al CSS específico y al script del presupuesto -->
+    <link rel="stylesheet" href="css/style-global.css" />
     <link rel="stylesheet" href="css/style-presupuesto.css" />
-    <script src="scripts/presupuesto.js" defer></script>
+    <!-- W3C VALIDATION FIX -->
+    <script src="scripts/presupuesto.js" type="text/javascript" defer></script>
 </head>
 <body>
 
 <header>
     <div class="header-superior">
         <img src="img/logo_empresa_header.png" alt="WedTaskMaster - logotipo principal" class="logo-empresa-header" width="60" height="60"/>
-        <h1>WedTaskMaster</h1>
+        <h1>WedTaskMaster</h1> 
     </div>
     <nav class="nav-principal">
         <ul>
@@ -32,62 +31,75 @@
 <main>
     <h2 class="titulo-principal">Calcula tu presupuesto</h2>
 
-    <!-- Sección 1: Datos de contacto -->
-    <section id="datos-contacto" class="buzon-cajetin">
-        <h3>Datos de contacto</h3>
-        <form id="form-presupuesto">
+    <form id="form-presupuesto">
+        <section id="datos-contacto" class="buzon-cajetin">
+            <h3>Datos de contacto</h3>
             <input type="text" id="nombre" placeholder="Nombre" maxlength="15" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" required />
             <input type="text" id="apellidos" placeholder="Apellidos" maxlength="40" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" required />
             <input type="tel" id="telefono" placeholder="Teléfono" maxlength="9" pattern="[0-9]{9}" required />
             <input type="email" id="email" placeholder="Email" required />
-        </form>
-    </section>
+        </section>
 
-    <!-- Sección 2: Selección de plan, extras y cálculo -->
-    <section id="presupuesto" class="buzon-cajetin">
-        <h3>El plan que mejor se ajusta a ti</h3>
+        <section id="presupuesto-calculo" class="buzon-cajetin">
+            <h3>El plan que mejor se ajusta a ti</h3>
 
-        <div class="contenedor-plan-personas">
-            <div class="plan">
-                <label for="plan">Selecciona un plan:</label>
-                <select id="plan">
-                    <option value="0">WTM Free - 0€/mes</option>
-                    <option value="12">WTM Pro - 12€/mes</option>
-                    <option value="9">WTM Equipos - 9€/mes por persona</option>
-                </select>
+            <div class="contenedor-plan-personas">
+                <div class="plan">
+                    <label for="plan">Tipo de plan (Producto):</label>
+                    <select id="plan">
+                        <option value="0">WTM Free - 0€/mes</option>
+                        <option value="12">WTM Pro - 12€/mes</option>
+                        <option value="9">WTM Equipos - 9€/mes por persona</option>
+                    </select>
+                </div>
+
+                <div class="plazo-suscripcion">
+                    <label for="plazoSus">Plazo de suscripción:</label>
+                    <select id="plazoSus">
+                        <option value="0">Mensual</option>
+                        <option value="0.05">Trimestral (5% de descuento)</option>
+                        <option value="0.15">Anual (15% de descuento)</option>
+                    </select>
+                </div>
+                
+                <div class="personas" id="grupo-personas">
+                    <label for="numPersonas">Número de personas:</label>
+                    <input type="number" id="numPersonas" value="3" min="3" />
+                </div>
             </div>
 
-            <div class="personas" id="grupo-personas">
-                <label for="numPersonas">Número de personas:</label>
-                <input type="number" id="numPersonas" value="3" min="3" />
+            <h3>¡Te ayudamos en el día B!</h3>
+            <div class="extras">
+                <label><input type="checkbox" value="200" class="extra"> Coordinación en el día de la boda (200€)</label>
+                <label><input type="checkbox" value="300" class="extra"> Organización y planificación (300€)</label>
+                <label><input type="checkbox" value="200" class="extra"> Decoración del venue (200€)</label>
+                <label><input type="checkbox" value="100" class="extra"> Decoración detalles y papelería (100€)</label>
+                <label><input type="checkbox" value="50" class="extra"> Transporte y desplazamiento (50€)</label>
             </div>
-        </div>
 
-        <h3>¡Te ayudamos en el día B!</h3>
-        <div class="extras">
-            <label><input type="checkbox" value="200" class="extra"> Coordinación en el día de la boda (200€)</label>
-            <label><input type="checkbox" value="300" class="extra"> Organización y planificación (300€)</label>
-            <label><input type="checkbox" value="200" class="extra"> Decoración del venue (200€)</label>
-            <label><input type="checkbox" value="100" class="extra"> Decoración detalles y papelería (100€)</label>
-            <label><input type="checkbox" value="50" class="extra"> Transporte y desplazamiento (50€)</label>
-        </div>
+            <div id="resultado">
+                <p><strong>Presupuesto final:</strong> <span id="cantidad" class="resaltado">0€</span></p>
+                <p id="descuento-info" style="color: green; font-weight: bold; margin-top: 5px;"></p>
+            </div>
 
-        <div class="botones-presupuesto">
-            <button id="calcular" type="button">Calcular presupuesto</button>
-            <button id="resetear" type="reset">Resetear</button>
-        </div>
-
-        <div id="resultado">
-            <p><strong>Presupuesto final:</strong> <span id="cantidad" class="resaltado">0€</span></p>
-        </div>
-
-        <div class="condiciones">
-            <label>
-                <input type="checkbox" id="aceptar-condiciones" required />
-                Acepto los términos y condiciones del servicio.
-            </label>
-        </div>
-    </section>
+            <div class="condiciones">
+                <label>
+                    <input type="checkbox" id="aceptar-condiciones" required />
+                    Acepto los términos y condiciones del servicio.
+                </label>
+            </div>
+            
+            <div class="botones-presupuesto-grupo"> 
+                <div class="botones-presupuesto-linea1">
+                    <button id="calcular" type="button">Calcular presupuesto</button>
+                    <button id="resetear" type="button">Resetear</button>
+                </div>
+                <div class="botones-presupuesto-linea2">
+                    <button id="btn-enviar" type="submit" disabled>Confirmar plan elegido</button>
+                </div>
+            </div>
+        </section>
+    </form>
 </main>
 
 <footer>
